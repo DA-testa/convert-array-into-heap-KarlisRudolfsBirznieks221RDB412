@@ -11,7 +11,7 @@ def build_heap(data):
 
 
 def sift_down(data, swaps, i, n):
-    while i<n:
+    while i < n:
         left = 2 * i + 1
         right = 2 * i + 2
         smallest = i
@@ -29,25 +29,26 @@ def sift_down(data, swaps, i, n):
 
 
 def main():
-    
-    # add input for I or F 
+    # Add input for I or F 
     heap_type = input().strip().upper()
     assert heap_type in ["I", "F"]
 
-    # TODO : add input and corresponding checks
-    n = int(input())
+    # Add input for n
+    n = int(input().strip())
     assert 1 <= n <= 10**5
-    data = list(map(int, input().split()))
 
-    # calls function to assess the data 
-    # and give back all swaps
+    # Add input for data and split it by spaces
+    data = list(map(int, input().strip().split()))
+    assert len(data) == n
+
+    # Call function to assess the data and give back all swaps
     swaps = build_heap(data)
 
-    # TODO: output how many swaps were made, 
+    # Output the heap type and how many swaps were made
+    print(heap_type)
     print(len(swaps))
-    # this number should be less than 4n (less than 4*len(data))
 
-    # output all swaps
+    # Output all swaps
     for i, j in swaps:
         print(i, j)
 
