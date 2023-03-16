@@ -4,7 +4,6 @@
 def build_heap(data):
     swaps = []
     n = len(data)
-    # TODO: Creat heap and heap sort
     for i in range(n // 2, -1, -1):
         swaps = sift_down(data, swaps, i, n)
     return swaps
@@ -29,28 +28,24 @@ def sift_down(data, swaps, i, n):
 
 
 def main():
-    # Add input for I or F 
+    # Get the heap type input and validate it
     heap_type = input().strip().upper()
     assert heap_type in ["I", "F"]
 
-    # Add input for n
+    # Get the number of elements in the data list and validate it
     n = int(input().strip())
     assert 1 <= n <= 10**5
 
-    # Add input for data and split it by spaces
+    # Get the list of data elements and validate it
     data = list(map(int, input().strip().split()))
     assert len(data) == n
 
-    # Call function to assess the data and give back all swaps
+    # Call the build_heap function to generate swaps and print the results
     swaps = build_heap(data)
-
-    # Output the heap type and how many swaps were made
     print(heap_type)
-    print(len(swaps))
-
-    # Output all swaps
-    for i, j in swaps:
-        print(i, j)
+    print(str(len(swaps)))
+    for swap in swaps:
+        print(str(swap[0]) + " " + str(swap[1]))
 
 
 if __name__ == "__main__":
