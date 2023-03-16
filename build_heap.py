@@ -30,14 +30,14 @@ def sift_down(data, swaps, i, n):
 
 def main():
     
+    # add input for I or F 
+    heap_type = input().strip().upper()
+    assert heap_type in ["I", "F"]
+
     # TODO : add input and corresponding checks
     n = int(input())
     assert 1 <= n <= 10**5
     data = list(map(int, input().split()))
-    
-    # add another input for I or F 
-    heap_type = input().strip().upper()
-    assert heap_type in ["I", "F"]
 
     # calls function to assess the data 
     # and give back all swaps
@@ -46,7 +46,6 @@ def main():
     # TODO: output how many swaps were made, 
     print(len(swaps))
     # this number should be less than 4n (less than 4*len(data))
-
 
     # output all swaps
     for i, j in swaps:
