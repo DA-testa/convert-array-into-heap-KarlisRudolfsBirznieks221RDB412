@@ -29,7 +29,7 @@ def sift_down(data, swaps, i, n):
 
 
 def main():
-    # Add input for I or F 
+    # Add input for I or F
     global heap_type
     heap_type = input().strip().upper()
     assert heap_type in ["I", "F"]
