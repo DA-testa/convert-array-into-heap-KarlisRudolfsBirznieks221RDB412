@@ -1,13 +1,13 @@
-# python 3
 # 221RDB412 Kārlis Rūdolfs Birznieks
 
 import os
+
 
 def build_heap(data):
     swaps = []
     n = len(data)
     # TODO: Create heap and heap sort
-    
+
     # Add heap_type parameter to sift_down function
     for i in range(n // 2, -1, -1):
         swaps = sift_down(data, swaps, i, n, heap_type)
@@ -34,9 +34,9 @@ def sift_down(data, swaps, i, n, heap_type):
 
 
 def main():
- 
+
     global heap_type
-   
+
     heap_type = input().strip().upper()
     assert heap_type in ["I", "F"]
 
