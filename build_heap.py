@@ -34,12 +34,33 @@ def main():
     heap_type = input().strip().upper()
     assert heap_type in ["I", "F"]
 
-    # Add input for n
-    n = int(input().strip())
-    assert 1 <= n <= 10**5
+    # Read input
+    if heap_type == "F":
+        # Input from file
+        try:
+            # Prompt user for file path
+            file_path = input("Input file path: ")
+            # Read input from file
+            with open(file_path, "r") as file:
+                # Read the number of elements from the first line
+                n = int(file.readline().strip())
+                # Read the list of elements from the second line
+                data = list(map(int, file.readline().strip().split()))
+        except FileNotFoundError:
+            print("File not found.")
+            return
+    else:
+        # Input from keyboard
+        try:
+            # Read the number of elements from the first line
+            n = int(input().strip())
+            # Read the list of elements from the second line
+            data = list(map(int, input().strip().split()))
+        except ValueError:
+            print("Invalid input format.")
+            return
 
-    # Add input for data and split it by spaces
-    data = list(map(int, input().strip().split()))
+    # Check input length
     assert len(data) == n
 
     # Call function to assess the data and give back all swaps
