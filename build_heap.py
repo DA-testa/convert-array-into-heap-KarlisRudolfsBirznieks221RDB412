@@ -1,4 +1,7 @@
+# python 3
 # 221RDB412 Kārlis Rūdolfs Birznieks
+
+import os
 
 def build_heap(data):
     swaps = []
@@ -31,9 +34,9 @@ def sift_down(data, swaps, i, n, heap_type):
 
 
 def main():
-    # Add global keyword to access heap_type variable from within functions
+ 
     global heap_type
-    # Strip whitespace and convert input to uppercase
+   
     heap_type = input().strip().upper()
     assert heap_type in ["I", "F"]
 
@@ -43,8 +46,10 @@ def main():
         try:
             # Prompt user for file path and strip the carriage return character
             file_path = input("Input file path: ").rstrip('\r')
+            # Use os to get the absolute path of the file
+            abs_path = os.path.abspath(file_path)
             # Read input from file
-            with open(file_path, "r") as file:
+            with open(abs_path, "r") as file:
                 # Read the number of elements from the first line
                 n = int(file.readline().strip())
                 # Read the list of elements from the second line
