@@ -39,7 +39,7 @@ def main():
         # Input from file
         try:
             # Prompt user for file path
-            file_path = input("Input file path: ")
+            file_path = input("Input file path: ").rstrip('\r')
             # Read input from file
             with open(file_path, "r") as file:
                 # Read the number of elements from the first line
