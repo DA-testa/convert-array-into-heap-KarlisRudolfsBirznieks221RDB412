@@ -1,20 +1,22 @@
-# python3
 # 221RDB412 Kārlis Rūdolfs Birznieks
 
 def build_heap(data):
     swaps = []
     n = len(data)
     # TODO: Create heap and heap sort
+    
+    # Add heap_type parameter to sift_down function
     for i in range(n // 2, -1, -1):
-        swaps = sift_down(data, swaps, i, n)
+        swaps = sift_down(data, swaps, i, n, heap_type)
     return swaps
 
 
-def sift_down(data, swaps, i, n):
+def sift_down(data, swaps, i, n, heap_type):
     while i < n:
         left = 2 * i + 1
         right = 2 * i + 2
         smallest = i
+        # Modify the comparison based on the heap_type parameter
         if left < n and ((data[left] < data[smallest]) if heap_type == "I" else (data[left] > data[smallest])):
             smallest = left
         if right < n and ((data[right] < data[smallest]) if heap_type == "I" else (data[right] > data[smallest])):
@@ -29,8 +31,9 @@ def sift_down(data, swaps, i, n):
 
 
 def main():
-    # Add input for I or F
+    # Add global keyword to access heap_type variable from within functions
     global heap_type
+    # Strip whitespace and convert input to uppercase
     heap_type = input().strip().upper()
     assert heap_type in ["I", "F"]
 
@@ -38,7 +41,7 @@ def main():
     if heap_type == "F":
         # Input from file
         try:
-            # Prompt user for file path
+            # Prompt user for file path and strip the carriage return character
             file_path = input("Input file path: ").rstrip('\r')
             # Read input from file
             with open(file_path, "r") as file:
